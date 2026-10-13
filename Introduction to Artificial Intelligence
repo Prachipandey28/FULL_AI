@@ -1,0 +1,620 @@
+1. What is Artificial Intelligence?
+Let's understand the words first.
+Artificial = created by humans
+Intelligence = ability to learn, understand, reason and make decisions
+Therefore:
+Artificial Intelligence (AI) is the ability of a computer or machine to perform tasks that normally require human intelligence.
+
+AI systems can perform tasks such as:
+- Learning
+- Reasoning
+- Problem solving
+- Understanding language
+- Recognizing images
+- Making predictions
+- Making decisions
+- Planning
+Simple example
+Suppose you receive an email:
+"Congratulations! You won ₹10,00,000. Click here now!"
+
+A normal program may not know whether this email is suspicious.
+An AI-based spam detector can analyze:
+                 EMAIL
+                   │
+                   ▼
+          ┌─────────────────┐
+          │   AI SYSTEM     │
+          │                 │
+          │ Analyze words   │
+          │ Analyze sender  │
+          │ Find patterns   │
+          └────────┬────────┘
+                   │
+            ┌──────┴──────┐
+            ▼             ▼
+          SPAM          NOT SPAM
+
+The AI learns patterns from previously seen spam and legitimate emails.
+2. Why do we need AI?
+Humans are intelligent, but many tasks involve enormous amounts of data or repetitive decisions.
+Imagine an online shopping company receiving millions of customer interactions.
+It wants to determine:
+- What does a customer like?
+- What product should be recommended?
+- Is a transaction fraudulent?
+- What advertisement should be displayed?
+- What might the customer purchase next?
+Doing all of this manually isn't practical.
+AI can help automate these decisions.
+Large Amount of Data
+        │
+        ▼
+   AI System
+        │
+        ├──► Find patterns
+        ├──► Make predictions
+        ├──► Recommend
+        └──► Make decisions
+
+3. Main goals of AI
+AI has several major goals.
+1. Learning
+Machines should be able to learn patterns from data.
+Example:
+Past House Data
+      ↓
+AI learns relationship
+      ↓
+Predict price of new house
+
+2. Reasoning
+AI should use available information to reach conclusions.
+For example:
+All humans are mortal.
+Rahul is a human.
+        ↓
+Therefore:
+Rahul is mortal.
+
+This is reasoning.
+3. Problem Solving
+AI can search among possible solutions to find a good or optimal one.
+For example, Google Maps needs to determine:
+Home
+ │
+ ├── Road A ───────┐
+ │                 │
+ ├── Road B ──┐    ├──► College
+ │            │    │
+ └── Road C ──┴────┘
+
+AI/search algorithms can help determine an efficient route.
+We'll later study algorithms such as:
+BFS, DFS, Uniform Cost Search, Greedy Search and A*.
+4. Perception
+AI systems can interpret information from the real world.
+For example:
+Camera
+  ↓
+Image
+  ↓
+AI Model
+  ↓
+Object Detection
+  ↓
+"Car"
+"Person"
+"Dog"
+
+Computer Vision is an important branch of AI concerned with visual information.
+5. Natural Language Understanding
+Machines can process human language.
+Example:
+User:
+"Explain neural networks."
+
+        ↓
+
+Language Processing
+
+        ↓
+
+AI understands request
+
+        ↓
+
+Generates response
+
+Chatbots and language models are examples.
+6. Decision Making
+AI can choose an action based on available information.
+For example, a fraud detection system might do:
+Transaction
+     ↓
+Analyze
+     ↓
+Risk Score
+     ↓
+ ┌───┴────┐
+ ▼        ▼
+Low      High
+Risk     Risk
+ │        │
+Approve  Flag/Block
+
+4. How does an AI system work?
+At a basic level:
+              ┌─────────────┐
+              │    DATA     │
+              └──────┬──────┘
+                     │
+                     ▼
+              ┌─────────────┐
+              │ PROCESSING  │
+              └──────┬──────┘
+                     │
+                     ▼
+              ┌─────────────┐
+              │ LEARNING /  │
+              │ REASONING   │
+              └──────┬──────┘
+                     │
+                     ▼
+              ┌─────────────┐
+              │ DECISION /  │
+              │ PREDICTION  │
+              └──────┬──────┘
+                     │
+                     ▼
+                  OUTPUT
+
+Consider a medical image classification system.
+Step 1 — Input
+An image is provided.
+X-ray / Scan
+
+Step 2 — Processing
+The image is prepared for the model.
+Step 3 — Feature/pattern learning
+The model learns or detects patterns associated with different classes.
+Step 4 — Prediction
+Image
+  ↓
+AI Model
+  ↓
+Probability / Class prediction
+
+This same general idea appears throughout ML and Deep Learning.
+5. AI is a very large field
+A common mistake is thinking:
+AI = Machine Learning
+That's not completely correct.
+AI is the broader field.
+┌──────────────────────────────────────┐
+│        ARTIFICIAL INTELLIGENCE       │
+│                                      │
+│   ┌──────────────────────────────┐   │
+│   │       MACHINE LEARNING       │   │
+│   │                              │   │
+│   │    ┌────────────────────┐    │   │
+│   │    │   DEEP LEARNING    │    │   │
+│   │    └────────────────────┘    │   │
+│   └──────────────────────────────┘   │
+│                                      │
+│ Search • Planning • Logic • Agents   │
+│ NLP • Robotics • Expert Systems      │
+└──────────────────────────────────────┘
+
+AI
+Broad goal:
+Make machines capable of intelligent behavior.
+
+Machine Learning
+A way of building systems that learn patterns from data.
+Deep Learning
+A part of ML that uses multi-layer neural networks.
+We'll study this comparison properly in Chapter 2.
+6. Traditional Programming vs AI/ML
+This is a very important distinction.
+Traditional programming
+Humans explicitly write rules.
+DATA + RULES
+     │
+     ▼
+   PROGRAM
+     │
+     ▼
+   OUTPUT
+
+Example:
+if marks >= 40:
+    print("Pass")
+else:
+    print("Fail")
+
+The programmer already knows the rule.
+7. Machine Learning approach
+In ML, we often provide examples and expected outputs during training.
+        DATA
+          +
+   CORRECT ANSWERS
+          │
+          ▼
+    ML ALGORITHM
+          │
+          ▼
+       MODEL
+
+The trained model can then process new data:
+New Data
+   │
+   ▼
+Trained Model
+   │
+   ▼
+Prediction
+
+Example: Spam Detection
+Training data:
+Email	Label
+"Win money now"	Spam
+"Project meeting tomorrow"	Not Spam
+"Claim your free prize"	Spam
+"College timetable attached"	Not Spam
+
+
+The model learns statistical patterns from many examples.
+Then:
+New Email
+    ↓
+Trained Model
+    ↓
+Spam probability
+    ↓
+Classification
+
+8. Characteristics of AI
+Important characteristics include:
+Learning
+Ability to improve or derive patterns from experience/data.
+Reasoning
+Ability to draw conclusions from information.
+Problem solving
+Ability to find solutions to complex problems.
+Perception
+Ability to interpret images, sound, sensor data, etc.
+Language processing
+Ability to work with human language.
+Planning
+Ability to decide a sequence of actions to achieve a goal.
+Adaptation
+Some AI systems can change their behavior based on new information or feedback.
+9. Major branches of AI
+Think of AI as a large tree.
+                    AI
+                    │
+     ┌──────────────┼──────────────┐
+     │              │              │
+     ▼              ▼              ▼
+ Machine        Computer          NLP
+ Learning        Vision
+     │
+     ▼
+Deep Learning
+
+Other important areas:
+     │
+     ├── Robotics
+     ├── Expert Systems
+     ├── Knowledge Representation
+     ├── Search & Planning
+     └── Generative AI
+
+Machine Learning
+Machines learn patterns from data.
+Example:
+Predicting house prices
+Computer Vision
+Machines process visual information.
+Examples:
+- Face recognition
+- Medical image analysis
+- Object detection
+- Self-driving vehicle perception
+NLP
+NLP = Natural Language Processing
+Machines process human language.
+Examples:
+- Chatbots
+- Translation
+- Sentiment analysis
+- Text summarization
+Robotics
+AI can be combined with physical machines.
+Sensors
+   ↓
+Perception
+   ↓
+AI / Planning
+   ↓
+Decision
+   ↓
+Actuators
+   ↓
+Action
+
+Examples:
+- Warehouse robots
+- Industrial robots
+- Autonomous robots
+Expert Systems
+Programs designed to emulate decision-making based on specialist knowledge and rules.
+Basic architecture:
+User
+ ↓
+Inference Engine
+ ↓
+Knowledge Base
+ ↓
+Recommendation
+
+We'll study this deeply later.
+10. Real-world applications of AI
+AI is used across many industries.
+Healthcare
+- Medical image analysis
+- Clinical decision support
+- Drug discovery
+- Patient risk prediction
+Finance
+- Fraud detection
+- Credit risk models
+- Algorithmic systems
+- Customer service
+Education
+- Personalized learning
+- Automated assistance
+- Student performance prediction
+Transportation
+- Route optimization
+- Traffic prediction
+- Driver-assistance systems
+E-commerce
+- Recommendation systems
+- Search ranking
+- Customer support
+- Demand forecasting
+Cybersecurity
+- Anomaly detection
+- Spam detection
+- Malware classification
+- Fraud detection
+11. Advantages of AI
+Automation
+AI can automate repetitive or high-volume tasks.
+Speed
+Computers can analyze large quantities of data quickly.
+Consistency
+A well-designed system can apply the same decision rules repeatedly.
+24/7 availability
+Software systems can operate continuously.
+Data analysis
+AI can discover useful patterns from large datasets.
+Assistance
+AI can support humans in areas such as:
+- Coding
+- Research
+- Healthcare
+- Education
+- Customer support
+12. Limitations of AI
+This is equally important.
+AI is not magic.
+1. Data dependency
+Many AI systems require sufficient and relevant data.
+Bad data can lead to bad results.
+Poor Data
+    ↓
+Poor Learning
+    ↓
+Unreliable Prediction
+
+This is related to the idea:
+Garbage In → Garbage Out
+2. Bias
+If training data contains systematic biases, models can reproduce or amplify them.
+Biased Data
+     ↓
+Model Training
+     ↓
+Biased Predictions
+
+3. Cost
+Training and operating sophisticated AI systems can require:
+- GPUs
+- Storage
+- Compute
+- Electricity
+- Engineering resources
+4. Lack of human-level understanding
+Current AI can be extremely capable while still making surprising mistakes.
+Generating a confident answer does not guarantee the answer is correct.
+5. Privacy and security
+AI systems may process sensitive information, so appropriate security and privacy controls are important.
+13. AI terminology you should know
+Dataset
+Collection of data used for analysis or learning.
+Example:
+Student | Hours | Attendance | Result
+---------------------------------------
+A       | 5     | 90%        | Pass
+B       | 2     | 50%        | Fail
+C       | 6     | 95%        | Pass
+
+Feature
+An input variable used by a model.
+Here:
+Hours and Attendance → Features
+Label / Target
+What we're trying to predict.
+Here:
+Result → Target
+Model
+A learned mathematical/computational representation used to produce predictions.
+Features
+   ↓
+Model
+   ↓
+Prediction
+
+Training
+The process of learning model parameters/patterns from data.
+Training Data
+     ↓
+Algorithm
+     ↓
+Model
+
+Inference
+Using the trained model to make predictions on new input.
+New Input
+    ↓
+Trained Model
+    ↓
+Prediction
+
+Interview tip: Training = learning; inference = using what was learned to produce an output.
+14. A complete simple example
+Suppose we want AI/ML to predict whether a student will pass.
+We have:
+Study Hours	Attendance	Result
+1	40%	Fail
+2	55%	Fail
+5	80%	Pass
+6	90%	Pass
+7	95%	Pass
+
+
+Features:
+Study Hours
+Attendance
+
+Target:
+Pass / Fail
+
+Training:
+Historical Student Data
+          ↓
+     ML Algorithm
+          ↓
+    Trained Model
+
+Now a new student:
+Study = 6 hours
+Attendance = 88%
+       ↓
+    Model
+       ↓
+Prediction
+       ↓
+     PASS
+
+This is a basic example of a classification problem.
+15. AI vs Automation
+This is a common interview question.
+Automation
+Follows predefined instructions.
+IF condition
+THEN action
+
+Example:
+If temperature > 25:
+    turn_on_fan()
+
+AI
+Can use learned patterns, search, reasoning, or other techniques to determine outputs/actions.
+Data / Environment
+       ↓
+AI System
+       ↓
+Prediction / Decision
+       ↓
+Action
+
+Not all automation is AI, and AI systems can also be components inside larger automated workflows.
+16. Important interview questions
+Q1. What is Artificial Intelligence?
+Easy answer:
+Artificial Intelligence is a field of computer science focused on building systems capable of performing tasks that normally require human intelligence, such as learning, reasoning, problem solving, perception and language understanding.
+
+Q2. What are the main goals of AI?
+Learning, reasoning, problem solving, perception, planning, language processing and decision-making.
+Q3. Is AI the same as Machine Learning?
+No.
+Machine Learning is one approach within the broader field of Artificial Intelligence.
+Q4. Give some applications of AI.
+Healthcare, finance, education, recommendation systems, computer vision, robotics, fraud detection and conversational systems.
+Q5. What is a model?
+A model is a learned computational representation that maps input data to outputs such as predictions.
+Q6. What is training?
+Training is the process through which a model learns parameters/patterns from training data.
+Q7. What is inference?
+Inference is using a trained model to produce an output for new input.
+Q8. AI vs traditional programming?
+Traditional programming typically uses explicitly written rules, while ML systems can learn useful patterns from examples/data.
+17. MCQs
+Q1. AI stands for:
+A. Automated Information
+B. Artificial Intelligence
+C. Artificial Internet
+D. Advanced Interface
+Answer: B
+Q2. Which is a subset/approach within AI?
+A. Machine Learning
+B. Keyboard
+C. Operating System
+D. Compiler
+Answer: A
+Q3. Which is commonly associated with AI?
+A. Learning
+B. Reasoning
+C. Problem solving
+D. All of the above
+Answer: D
+Q4. NLP deals mainly with:
+A. Human language
+B. Computer hardware
+C. Network cables
+D. CPU manufacturing
+Answer: A
+Q5. Computer Vision primarily deals with:
+A. Audio only
+B. Images and video
+C. Database tables only
+D. Network routing
+Answer: B
+Q6. Which comes under Machine Learning?
+A. Regression
+B. Classification
+C. Clustering
+D. All of the above
+Answer: D
+Q7. The process of learning model parameters from data is called:
+A. Compilation
+B. Training
+C. Routing
+D. Rendering
+Answer: B
+Q8. Using a trained model on new input is called:
+A. Inference
+B. Compilation
+C. Encryption
+D. Formatting
+Answer: A
+18. Your practice questions ✍️
+Don't look at the notes while answering these.
+Basic: What is AI? Why do we need AI? Give five real-world AI applications. What is the difference between AI and automation? What is a dataset? What is a feature? What is a target/label? What is a model? What is training? What is inference?
+Understanding: Suppose you're building a system to predict employee salary from experience, education and skills. Identify the features and target. Is it more naturally a regression or classification problem? Explain why.
+Interview: An interviewer asks:
+"Can you explain Artificial Intelligence to a non-technical person?"
