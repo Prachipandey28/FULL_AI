@@ -1,0 +1,315 @@
+1. What is Knowledge Representation?
+Knowledge Representation (KR) is the process of storing information about the real world in a form that an AI system can understand and use to solve problems.
+Think of it this way: humans store knowledge in their brains, while AI systems represent knowledge using data structures, rules, logic, graphs, and other formal methods.
+Example:
+Suppose an AI system knows:
+- All humans are mortal.
+- Rahul is a human.
+It can conclude:
+- Rahul is mortal.
+The AI uses stored facts and a rule to derive a new conclusion.
+Knowledge
+All humans are mortal
+Rahul is a human
+
+Reasoning
+Apply the rule to the facts
+
+Conclusion
+Rahul is mortal
+
+
+2. What is Reasoning in AI?
+Reasoning is the process of using known facts and rules to reach a conclusion.
+For example:
+- Fact 1: If it rains, the road may become wet.
+- Fact 2: It is raining.
+- Conclusion: The road may become wet.
+Here, the AI uses information it already has to infer a possible outcome.
+Knowledge Representation and Reasoning are closely related:
+- Knowledge Representation: Stores facts and rules.
+- Reasoning: Uses those facts and rules to draw conclusions.
+3. Types of Knowledge in AI
+AI systems can work with different kinds of knowledge.
+
+1. Declarative Knowledge
+Knowledge about facts — knowing what something is.
+Example: Paris is the capital of France.
+
+
+
+
+2. Procedural Knowledge
+Knowledge about how to perform a task.
+Example: Steps to sort an array or prepare a cup of tea.
+
+
+
+
+3. Heuristic Knowledge
+Experience-based rules or shortcuts that often help solve problems.
+Example: In route finding, prefer roads that appear to move closer to the destination.
+
+
+
+
+4. Structural Knowledge
+Knowledge about relationships between concepts.
+Example: A car has an engine; an engine is part of a vehicle.
+
+
+
+
+5. Meta-Knowledge
+Knowledge about other knowledge — for example, knowing which information source or rule is more reliable in a particular situation.
+
+
+
+Memory trick: Declarative = facts, Procedural = steps, Heuristic = experience, Structural = relationships, Meta = knowledge about knowledge.
+4. Methods of Knowledge Representation
+There are several ways to represent knowledge in AI.
+A. Logical representation
+Uses formal logic to express facts and rules.
+Example:
+- All humans are mortal.
+- Socrates is human.
+- Therefore, Socrates is mortal.
+A rule can be written as:
+\[
+Human(x)\rightarrow Mortal(x)
+\]
+
+This means: if \(x\) is a human, then \(x\) is mortal.
+And the fact:
+\[
+Human(Socrates)
+\]
+
+Together, these allow the system to infer:
+\[
+Mortal(Socrates)
+\]
+
+B. Semantic networks
+A semantic network represents knowledge as a graph of concepts and their relationships.
+Animal
+
+is a type of
+Bird
+
+is a type of
+Sparrow
+
+A sparrow is a bird, and a bird is an animal.
+
+The nodes represent concepts, and the links represent relationships such as “is-a” or “has-a.”
+C. Frames
+A frame stores information about an object or concept in a structured format, using attributes called slots and their values.
+Example: a Car frame.
+Slot	Value
+Type	Vehicle
+Wheels	4
+Fuel	Petrol or electricity
+Purpose	Transportation
+Frames are useful when knowledge about an object can be organized into attributes.
+D. Production rules
+Production rules represent knowledge using IF–THEN statements.
+Example:
+IF the traffic light is red
+THEN stop the vehicle.
+
+Another example:
+- IF a student's marks are 90 or above, THEN assign grade A.
+- IF a transaction looks suspicious, THEN flag it for review.
+Rule-based expert systems often use this representation.
+E. Ontologies
+An ontology defines concepts in a domain and the relationships between them, often with clearly specified meanings.
+Example in healthcare:
+- Doctor
+- Patient
+- Disease
+- Medicine
+Relationships might include “treats,” “diagnosed-with,” and “prescribed-to.”
+Ontologies are useful for organizing shared knowledge so that different systems can interpret it consistently.
+5. Propositional Logic
+Propositional logic deals with statements that are either true or false.
+Examples:
+- \(P\): It is raining.
+- \(Q\): The road is wet.
+Logical operators combine statements.
+Operator	Meaning	Example
+AND (\(\land\))	Both statements are true	\(P \land Q\)
+OR (\(\lor\))	At least one is true	\(P \lor Q\)
+NOT (\(\neg\))	Reverses truth value	\(\neg P\)
+IMPLIES (\(\rightarrow\))	If one statement holds, another follows	\(P \rightarrow Q\)
+For example, if \(P\) means “It is raining” and \(Q\) means “The road is wet,” then \(P \rightarrow Q\) expresses “If it is raining, then the road is wet.”
+This is a simplified logical rule; real roads do not always become wet just because it rains.
+A truth table example
+For the AND operator:
+P	Q	\(P \land Q\)
+True	True	True
+True	False	False
+False	True	False
+False	False	False
+Key point: AND is true only when both inputs are true.
+6. First-Order Logic (FOL)
+First-Order Logic extends propositional logic by allowing us to represent objects, properties, relationships, and quantified statements.
+Two important quantifiers are:
+- \(\forall\) — “for all”
+- \(\exists\) — “there exists”
+Example:
+“All humans are mortal.”
+\[
+\forall x\; (Human(x)\rightarrow Mortal(x))
+\]
+
+“There exists a student who studies AI.”
+\[
+\exists x\; (Student(x)\land StudiesAI(x))
+\]
+
+Difference:
+- Propositional logic treats statements as complete units.
+- First-Order Logic can express relationships about individual objects and groups of objects.
+FOL is more expressive, but reasoning with it can be computationally difficult.
+7. Inference in AI: Forward and Backward Chaining
+Inference means deriving new conclusions from existing facts and rules.
+A. Forward chaining
+Forward chaining is data-driven reasoning. It starts with known facts and applies rules to discover conclusions.
+Example:
+Facts:
+- Riya has a fever.
+- Rule: If a person has a fever, recommend checking for other symptoms.
+The system starts with the fact that Riya has a fever and applies the rule to produce a recommendation.
+Known facts
+Riya has a fever
+
+Apply matching rule
+
+New conclusion
+Check for other symptoms
+
+
+Forward chaining is commonly used in rule-based systems where new facts arrive and conclusions must be generated.
+B. Backward chaining
+Backward chaining is goal-driven reasoning. It starts with a goal and works backward to determine whether known facts and rules support it.
+Example:
+Goal: Does Riya qualify for a scholarship?
+Rules:
+- A student qualifies if their marks are at least 90 and they meet the attendance requirement.
+- Riya has 94 marks.
+- Riya meets the attendance requirement.
+The system checks each required condition before reaching its conclusion.
+Goal
+Does Riya qualify?
+
+Check requirements
+Marks ≥ 90? Attendance met?
+
+Verify facts
+Both conditions are satisfied
+
+
+Forward vs backward chaining
+Feature	Forward chaining	Backward chaining
+Starts with	Known facts	Goal or query
+Direction	Facts → conclusions	Goal → supporting facts
+Approach	Data-driven	Goal-driven
+Useful when	Many possible conclusions may be discovered	A specific question needs answering
+Easy memory trick: Forward = start with facts. Backward = start with the goal.
+8. Reasoning under uncertainty
+In real life, information is often incomplete or uncertain. AI systems may need to estimate how likely a conclusion is rather than treating it as definitely true.
+For example, if a customer has an unusual transaction, it does not automatically mean fraud has occurred. The system may estimate fraud risk using patterns in past transactions.
+Common approaches include:
+- Probability: Represents the likelihood of an event.
+- Bayesian reasoning: Updates probabilities when new evidence becomes available.
+- Fuzzy logic: Represents degrees of truth rather than only true or false.
+- Certainty factors: Represent confidence in conclusions in some rule-based systems.
+Probability example
+Suppose a model estimates a 70% probability that a transaction is fraudulent. This means the model assigns that level of probability; it does not prove that the transaction is fraud.
+Bayes' theorem is:
+\[
+P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}
+\]
+
+Here, \(P(A\mid B)\) is the probability of event A given evidence B, assuming \(P(B)>0\).
+9. Knowledge Representation vs Machine Learning
+These concepts are related, but they are not the same.
+Knowledge Representation	Machine Learning
+Represents facts, rules, and relationships	Learns patterns from data
+Can use logic, graphs, frames, and ontologies	Uses algorithms and trained models
+May rely on explicitly defined knowledge	Often learns behavior from examples
+Example: IF–THEN rules for troubleshooting	Example: A model predicting house prices
+Modern AI systems can combine both approaches. For example, a system might use a machine-learning model to identify an object and a knowledge base to reason about its properties.
+10. Placement interview questions
+Q1. What is Knowledge Representation?
+Knowledge Representation is the process of representing facts, rules, objects, and relationships in a form that an AI system can process.
+Q2. What are the common knowledge representation techniques?
+Common techniques include logical representation, semantic networks, frames, production rules, and ontologies.
+Q3. What is the difference between propositional logic and first-order logic?
+Propositional logic represents complete statements as true or false. First-order logic also represents objects, relationships, and quantified statements.
+Q4. What is forward chaining?
+Forward chaining is a data-driven inference technique that starts with known facts and applies rules to derive new conclusions.
+Q5. What is backward chaining?
+Backward chaining starts with a goal and checks whether available facts and rules support that goal.
+Q6. What is fuzzy logic?
+Fuzzy logic allows degrees of truth between completely false and completely true. For example, a temperature might be described as “somewhat hot” rather than simply hot or not hot.
+11. MCQ practice test
+1. What is the main purpose of Knowledge Representation?
+
+Store and organize knowledge for AI reasoning
+
+Only increase internet speed
+
+Replace all databases
+
+Only draw graphs
+
+
+
+2. Which technique represents knowledge using IF–THEN rules?
+
+Semantic network
+
+Production rules
+
+Frames only
+
+Image filtering
+
+
+
+3. Which logic uses quantifiers such as ∀ and ∃?
+
+Propositional logic only
+
+First-Order Logic
+
+Boolean AND only
+
+Arithmetic
+
+
+
+4. Which inference method starts from known facts?
+
+Backward chaining
+
+Forward chaining
+
+Reverse sorting
+
+Depth-first search only
+
+
+
+5. Which method represents degrees of truth?
+
+Fuzzy logic
+
+Binary search
+
+BFS
+
+Production scheduling
+
