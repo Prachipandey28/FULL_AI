@@ -1,1 +1,145 @@
+1. What are the types of AI?
+Artificial Intelligence can be classified based on its capabilities — how intelligently it can perform tasks compared with humans.
+
+
+1. ANI — Artificial Narrow Intelligence
+AI designed to perform a specific task or a limited set of tasks.
+Exists today
+Examples: Siri, Google Translate, recommendation systems, chess-playing AI.
+
+
+2. AGI — Artificial General Intelligence
+AI that could learn, understand, and perform a wide range of intellectual tasks at a human-like level.
+Not yet achieved
+Example: A hypothetical AI that can learn mathematics, cook, solve unfamiliar problems, and adapt to new situations without being separately designed for each task.
+
+
+3. ASI — Artificial Superintelligence
+Hypothetical AI that would surpass human intelligence across virtually all intellectual areas.
+Theoretical
+Example: An AI that outperforms the best humans in scientific research, strategic planning, and complex problem-solving.
+
+
+2. Easy way to remember
+Imagine three levels of intelligence:
+
+ANI = Specific intelligence
+Good at a particular task.
+Example: AI that only plays chess.
+
+
+AGI = General intelligence
+Could learn and perform many different tasks.
+Example: A hypothetical AI that can learn almost any intellectual task a human can.
+
+
+ASI = Superhuman intelligence
+Would exceed human intellectual abilities broadly.
+Example: A hypothetical AI that surpasses experts across many fields.
+
+Shortcut: Narrow → General → Super.
+3. Comparison table
+Feature	ANI	AGI	ASI
+Full form	Artificial Narrow Intelligence	Artificial General Intelligence	Artificial Superintelligence
+Intelligence	Task-specific	Human-level general intelligence	Beyond human intelligence
+Status	Exists today	Not yet achieved	Theoretical
+Adaptability	Limited to its capabilities	Would adapt across many tasks	Would exceed humans broadly
+Example	Spam filter	Hypothetical general-purpose AI	Hypothetical superintelligent AI
+
+4. Is ChatGPT ANI or AGI?
+This is an important interview question.
+ChatGPT can answer questions, write code, explain concepts, and perform many other tasks. However, performing many tasks does not automatically mean an AI has achieved AGI.
+Today's AI systems, including ChatGPT, are generally considered part of the current AI landscape rather than confirmed AGI. They can still make mistakes and have limitations in reasoning, reliability, and adapting to unfamiliar situations.
+
+5. Advantages and limitations
+ANI
+- Advantages: Efficient, fast, and useful for specific tasks.
+- Limitations: May struggle outside its designed capabilities.
+
+AGI
+- Potential advantages: Could solve a broad range of problems and adapt to new tasks.
+- Limitations: Not yet achieved; its feasibility, safety, and impact remain open questions.
+
+ASI
+- Potential advantages: Could accelerate scientific discoveries and solve complex problems.
+- Limitations: Entirely hypothetical; control, safety, and ethical risks would be major concerns.
+
+6. Interview questions and answers
+
+Q1. What is ANI?
+ANI is Artificial Narrow Intelligence, designed to perform specific tasks, such as image recognition, translation, or recommendations.
+
+Q2. What is the difference between ANI and AGI?
+ANI specializes in particular tasks, whereas AGI would have general intellectual abilities across many different tasks at a human-like level.
+
+Q3. Has AGI been achieved?
+There is no generally accepted demonstration that AGI has been achieved. Current AI systems have impressive capabilities but still have significant limitations.
+
+Q4. What is ASI?
+ASI is Artificial Superintelligence, a hypothetical form of AI that would surpass human intelligence across a broad range of intellectual tasks.
+
+Q5. Which type of AI do we use today?
+Most deployed AI systems are classified as ANI, including recommendation engines, voice assistants, and many computer vision systems.
+
+7. MCQ practice test
+Test yourself
+0/5 answered
+
+1. Which type of AI exists today?
+
+AGI
+
+ANI
+
+ASI
+
+None of these
+
+
+
+2. Which AI could perform a broad range of intellectual tasks at a human-like level?
+
+ANI
+
+AGI
+
+ASI
+
+Automation only
+
+
+
+3. Which type of AI is hypothetical and would surpass human intelligence broadly?
+
+ANI
+
+AGI
+
+ASI
+
+Narrow AI
+
+
+
+4. Is ChatGPT automatically AGI because it can perform many tasks?
+
+Yes, always
+
+No, many capabilities alone do not establish AGI
+
+Yes, because it uses language
+
+None of these
+
+
+
+5. A system that recommends videos based on your viewing history is usually:
+
+ANI
+
+AGI
+
+ASI
+
+Human intelligence
 
