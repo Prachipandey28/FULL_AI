@@ -1,0 +1,221 @@
+1. What is problem-solving in AI?
+AI problem-solving is the process of finding a sequence of actions that takes a system from an initial situation to a desired goal.
+Example: Imagine a robot needs to travel from Room A to Room D. It must find a path that reaches Room D while avoiding obstacles.
+Start
+Room A
+
+Find path
+Avoid obstacles
+
+Goal
+Room D
+
+
+The AI searches for a sequence of actions that reaches the destination.
+
+AI problem-solving is commonly used in:
+- Google Maps route planning
+- Robot navigation
+- Puzzle solving
+- Game-playing AI
+- Scheduling and resource allocation
+2. The four basic elements of an AI problem
+When defining a problem for an AI system, identify these four elements.
+
+1. Initial state
+Where the system starts.
+Example: A robot is in Room A.
+
+
+
+2. Actions
+The possible moves the system can make.
+Example: Move left, right, forward, or backward.
+
+
+
+3. Goal test
+Checks whether the desired goal has been reached.
+Example: Is the robot in Room D?
+
+
+
+4. Path cost
+Measures the cost of a sequence of actions.
+Example: The distance, time, or energy needed to reach Room D.
+
+
+
+3. What is a search algorithm in AI?
+A search algorithm explores possible paths or solutions to find one that reaches the goal.
+Suppose a robot needs to travel from A to G. There may be several possible routes, but the robot needs to select one.
+Start: A
+
+Route B
+
+Route C
+
+
+D → G
+
+E → G
+
+
+A search algorithm explores the available routes according to its strategy.
+
+Important search algorithms
+1. Breadth-First Search (BFS)
+Explores nodes level by level, visiting the closest-depth options first.
+- Uses a queue (FIFO).
+- Finds the shortest path in an unweighted graph.
+- May use considerable memory.
+
+2. Depth-First Search (DFS)
+Explores one branch as deeply as possible before backtracking.
+- Uses a stack (LIFO) or recursion.
+- Often uses less memory than BFS.
+- Does not generally guarantee the shortest path.
+
+3. Uniform-Cost Search (UCS)
+Expands the path with the lowest total cost so far.
+- Uses a priority queue.
+- Finds an optimal solution when the step costs are non-negative under the standard assumptions.
+
+4. A Search*
+Uses the cost so far and an estimate of the remaining cost to guide the search.
+- Formula: \(f(n)=g(n)+h(n)\)
+- \(g(n)\): cost from the start to the current node.
+- \(h(n)\): estimated cost from the current node to the goal.
+- Can find an optimal path when the heuristic satisfies the required conditions.
+
+
+Remember for DSA: BFS uses a queue; DFS uses a stack or recursion. A* uses \(g(n)+h(n)\).
+4. What is an intelligent agent?
+An intelligent agent is a system that perceives its environment, makes decisions, and takes actions to achieve a goal.
+Examples include a robot, a voice assistant, and a self-driving car system.
+Sensors
+Collect information from the environment
+
+Agent / Decision-making
+Selects an appropriate action
+
+Actuators
+Perform actions in the environment
+
+Example: A robot senses an obstacle, decides to turn, and moves using its motors.
+
+- Sensors receive information.
+- Agent program processes information and selects actions.
+- Actuators carry out actions.
+
+5. Types of intelligent agents
+There are five common types in introductory AI.
+
+1. Simple reflex agent
+Acts using the current percept and predefined condition-action rules.
+Example: A thermostat switches heating on when the temperature is below a threshold.
+
+
+2. Model-based reflex agent
+Maintains an internal model or state to deal with aspects of the environment it cannot currently observe.
+Example: A robot vacuum remembers where it has already cleaned.
+
+
+3. Goal-based agent
+Chooses actions based on whether they help achieve a goal.
+Example: A navigation system plans a route to your destination.
+
+
+4. Utility-based agent
+Compares possible outcomes using a utility measure, such as balancing time, cost, comfort, and safety.
+Example: A route planner choosing a route based on travel time and toll costs.
+
+
+5. Learning agent
+Improves its behavior using experience or feedback.
+Example: A game-playing agent that improves its strategy through repeated training.
+
+
+
+6. PEAS in AI
+PEAS is a framework used to describe an intelligent agent's task environment.
+- P — Performance measure: How success is measured.
+- E — Environment: Where the agent operates.
+- A — Actuators: How it acts.
+- S — Sensors: How it perceives.
+Example: self-driving car.
+Component	Example
+Performance	Safety, travel time, obeying traffic rules
+Environment	Roads, traffic, pedestrians
+Actuators	Steering, brakes, accelerator
+Sensors	Cameras, radar, GPS
+Memory trick: PEAS = Performance, Environment, Actuators, Sensors.
+7. Interview questions
+Q1. What is an intelligent agent?
+An intelligent agent perceives its environment through sensors and acts through actuators to achieve a goal.
+Q2. Differentiate between BFS and DFS.
+BFS explores level by level using a queue, whereas DFS explores deeply along a branch using a stack or recursion.
+Q3. What is a heuristic in AI?
+A heuristic is an estimate that helps a search algorithm decide which option to explore next. In A*, \(h(n)\) estimates the remaining cost to the goal.
+Q4. What is the difference between goal-based and utility-based agents?
+A goal-based agent selects actions to achieve a goal. A utility-based agent compares outcomes and chooses one with the highest utility.
+Q5. What is PEAS?
+PEAS stands for Performance measure, Environment, Actuators, and Sensors. It helps specify an intelligent agent's task environment.
+8. MCQ practice
+1. Which data structure does BFS use?
+
+Stack
+
+Queue
+
+Tree only
+
+Hash map
+
+
+
+2. Which algorithm explores deeply along a branch?
+
+BFS
+
+DFS
+
+UCS only
+
+Linear regression
+
+
+
+3. What is the formula used by A*?
+
+f(n) = g(n) + h(n)
+
+f(n) = g(n) − h(n)
+
+f(n) = g(n) × h(n)
+
+f(n) = h(n) only
+
+
+
+4. Which agent improves using experience?
+
+Simple reflex
+
+Learning agent
+
+Fixed rule only
+
+None
+
+
+
+5. In PEAS, what does S represent?
+
+Search
+
+State
+
+Sensors
+
+Solution
