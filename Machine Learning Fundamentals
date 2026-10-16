@@ -1,0 +1,301 @@
+1. What is Machine Learning?
+Machine Learning is a branch of AI that enables computers to learn patterns from data and use those patterns to make predictions or decisions without being explicitly programmed with a separate rule for every situation.
+Simple example
+Suppose we want to predict whether a student will pass an exam.
+We provide historical data containing study hours and exam results.
+Study hours	Result
+1	Fail
+2	Fail
+5	Pass
+7	Pass
+8	Pass
+The ML algorithm learns patterns from these examples. When given a new student's study hours, the trained model predicts a possible result.
+Training data
+Past study hours and results
+
+ML algorithm learns patterns
+
+Trained model
+Uses learned patterns on new data
+
+Prediction
+Predicted result for a new student
+
+
+Remember: this is only an illustration. Real exam results depend on many factors, not just study hours.
+2. How is Machine Learning different from traditional programming?
+In traditional programming, we write rules to process inputs and produce outputs. In machine learning, we provide examples and use an algorithm to learn a model.
+Traditional programming
+Input data
+Programmed rules
+Output
+
+
+Machine learning
+Training data + results
+Learning algorithm
+Learned model
+
+
+
+Example: Spam email detection
+- Traditional programming: A developer writes rules such as “flag an email if it contains certain suspicious words.”
+- Machine learning: A model learns patterns from labeled spam and non-spam emails.
+Modern systems can combine both approaches.
+3. Important Machine Learning terminology
+These terms are frequently asked in interviews.
+1. Dataset
+A collection of examples used for training, validation, or testing.
+Example: A table of student marks, study hours, and results.
+
+2. Features (X)
+Input variables used by a model to make predictions.
+Example: Study hours, attendance, and assignment scores.
+
+3. Label or target (y)
+The outcome a supervised model is trained to predict.
+Example: Pass or fail.
+
+4. Algorithm
+The learning procedure used to fit a model.
+Example: Decision tree, linear regression, or logistic regression.
+
+5. Model
+The learned system produced by training an algorithm on data.
+Example: A fitted model that predicts exam results.
+
+6. Training
+The process of learning model parameters or patterns from data.
+
+7. Prediction / Inference
+Using a trained model to generate an output for new input data.
+
+
+4. Three main types of Machine Learning
+Machine Learning is commonly divided into three main learning approaches.
+
+
+1. Supervised Learning
+The model learns from labeled data, where the correct answer is provided during training.
+Example: Predicting house prices from past house sales.
+Common tasks: classification and regression.
+
+
+2. Unsupervised Learning
+The model looks for patterns or structures in data without supplied target labels.
+Example: Grouping customers based on purchasing behavior.
+Common tasks: clustering and dimensionality reduction.
+
+
+3. Reinforcement Learning
+An agent learns by interacting with an environment and receiving rewards or penalties.
+Example: An AI agent learning to play a game through repeated attempts.
+Common concepts: agent, environment, action, reward, and policy.
+
+Easy way to remember
+- Supervised: Learn from examples with answers.
+- Unsupervised: Find patterns without given answers.
+- Reinforcement: Learn through actions and rewards.
+5. Classification vs Regression
+These are two important types of supervised learning.
+Classification
+Predicts a category or class.
+Examples:
+- Email → Spam or Not Spam
+- Image → Cat or Dog
+- Transaction → Fraudulent or Legitimate
+
+
+Regression
+Predicts a numerical value.
+Examples:
+- House price → ₹45 lakh
+- Temperature → 32.5°C
+- Sales forecast → 12,500 units
+
+
+Memory trick: Classification = category; Regression = number.
+A model's predicted number may later be converted into a category using a threshold, but the original task and evaluation method matter.
+6. The Machine Learning workflow
+Building a useful ML model involves more than choosing an algorithm.
+1
+
+Collect data
+
+Gather relevant examples
+
+2
+
+Clean and prepare data
+
+Handle missing values and errors
+
+3
+
+Split the dataset
+
+Create training and test sets
+
+4
+
+Choose an algorithm
+
+Select a suitable learning method
+
+5
+
+Train the model
+
+Learn patterns from training data
+
+6
+
+Evaluate the model
+
+Measure performance on unseen data
+
+7
+
+Deploy and monitor
+
+Use it in an application and check performance
+
+
+Important: Data leakage happens when information unavailable at prediction time, or information from the test set, improperly influences training. This can make a model appear more accurate than it really is.
+7. Training data vs testing data
+Why don't we evaluate a model only on the same data it learned from?
+Because the model may memorize the training examples instead of learning patterns that generalize to new examples.
+Training data	Testing data
+Used to fit the model	Used for final evaluation
+Model learns from it	Kept separate during training
+Measures learning performance	Estimates performance on unseen data
+A validation set is also often used to compare models and tune hyperparameters before final testing.
+A common split is 80% training and 20% testing, but the best split depends on dataset size, task, and evaluation requirements.
+8. What are overfitting and underfitting?
+These are two common problems in Machine Learning.
+Overfitting
+The model learns the training data too closely, including noise or accidental patterns, and performs poorly on new data.
+Example: A student memorizes the exact answers to practice questions but cannot solve a new question.
+Common remedies include regularization, more representative training data, and cross-validation.
+
+Underfitting
+The model is too simple or insufficiently trained to capture important patterns.
+Example: A student studies only one basic formula and cannot solve most exam questions.
+Possible remedies include a more suitable model, better features, or improved training.
+
+
+A useful comparison
+Underfitting
+Too simple
+
+Good fit
+Generalizes well
+
+Overfitting
+Learns noise
+
+
+
+9. Common Machine Learning algorithms
+You don't need to master every algorithm today. First, understand what each one is used for.
+Algorithm	Common use
+Linear Regression	Predicting numerical values
+Logistic Regression	Classification
+Decision Tree	Classification and regression
+Random Forest	Combining multiple decision trees
+K-Nearest Neighbors (KNN)	Predicting from nearby examples
+K-Means	Grouping similar data points
+Support Vector Machine (SVM)	Classification and regression
+Naive Bayes	Probabilistic classification
+Neural Networks	Learning complex patterns
+For example, if you want to predict a student's marks, Linear Regression may be a reasonable starting point. If you want to predict pass or fail, Logistic Regression or a Decision Tree may be suitable.
+The best algorithm depends on the dataset, task, and performance requirements.
+10. Build your first ML model in Python
+Let's use a simple Linear Regression model to predict marks from study hours.
+This example uses scikit-learn, a popular Python library for Machine Learning.
+from sklearn.linear_model import LinearRegression# Input feature: study hoursX = [[1], [2], [3], [4], [5]]# Target: marksy = [20, 30, 40, 50, 60]# Create the modelmodel = LinearRegression()# Train the modelmodel.fit(X, y)# Predict marks for 6 study hoursprediction = model.predict([[6]])print("Predicted marks:", prediction[0])
+
+
+
+Expected prediction: approximately 70.0.
+Understand each line
+- X contains the input feature: study hours.
+- y contains the target values: marks.
+- LinearRegression() creates the learning algorithm's model object.
+- model.fit(X, y) trains the model.
+- model.predict([[6]]) predicts marks for six study hours.
+The data here is deliberately simple to demonstrate the process. It is not a realistic model of actual exam performance.
+11. Placement interview questions
+Q1. What is Machine Learning?
+Machine Learning is a branch of AI that enables computers to learn patterns from data and make predictions or decisions.
+Q2. What is the difference between supervised and unsupervised learning?
+Supervised learning uses labeled data, whereas unsupervised learning discovers patterns in data without supplied target labels.
+Q3. What is the difference between classification and regression?
+Classification predicts categories, while regression predicts numerical values.
+Q4. What is overfitting?
+Overfitting occurs when a model learns the training data too closely and fails to generalize well to unseen data.
+Q5. Why do we split data into training and testing sets?
+We train the model on one portion and evaluate it on separate data to estimate how well it performs on unseen examples.
+Q6. What is the difference between an algorithm and a model?
+An algorithm is the learning procedure. A model is the fitted result after training the algorithm on data.
+12. MCQ practice test
+1. Which type of learning uses labeled data?
+
+Unsupervised learning
+
+Supervised learning
+
+Reinforcement learning
+
+None
+
+
+
+2. Predicting the price of a house is usually a:
+
+Classification task
+
+Regression task
+
+Clustering task
+
+Sorting task
+
+
+
+3. Which dataset is used to evaluate final model performance?
+
+Training set
+
+Final test set
+
+Only the input features
+
+The same training examples only
+
+
+
+4. A model performs very well on training data but poorly on new data. This is:
+
+Underfitting
+
+Overfitting
+
+Clustering
+
+Normalization
+
+
+
+5. Which algorithm is commonly used to group similar data points?
+
+K-Means
+
+Linear Regression
+
+Binary Search
+
+BFS
+
+
+Check answers
