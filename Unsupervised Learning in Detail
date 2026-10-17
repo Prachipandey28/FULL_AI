@@ -1,0 +1,407 @@
+1. What is Unsupervised Learning?
+Unsupervised Learning is a type of Machine Learning in which an algorithm analyzes data without supplied target labels to discover patterns, groups, or underlying structure.
+Imagine you have 100 customer records, but you don't know which customers belong to which group. You give the data to an algorithm, and it groups customers with similar purchasing behavior.
+Unlabeled data
+Customer age, spending, purchase frequency
+
+Unsupervised algorithm
+Discovers patterns and similarities
+
+Discovered groups
+Customers with similar behavior
+
+
+The algorithm finds groups based on the data and the chosen method. A person may then interpret what those groups mean.
+2. Supervised vs Unsupervised Learning
+Feature	Supervised learning	Unsupervised learning
+Training data	Labeled	No supplied target labels
+Main goal	Predict a target	Discover structure or patterns
+Example	Predict spam vs not spam	Group similar emails
+Common tasks	Classification, regression	Clustering, dimensionality reduction
+Evaluation	Compare predictions with known targets	Assess structure, usefulness, or downstream performance
+Remember: Supervised learning learns from examples with answers; unsupervised learning discovers patterns without supplied answers.
+
+3. Main applications of Unsupervised Learning
+
+Customer segmentation
+Groups customers based on purchasing patterns, spending, or interests.
+Example: Finding groups of frequent buyers and occasional buyers.
+
+
+Anomaly detection
+Identifies observations that differ substantially from typical patterns.
+Example: Flagging unusual network activity for investigation.
+
+
+Dimensionality reduction
+Represents data using fewer variables while preserving useful structure.
+Example: Reducing hundreds of measurements to a smaller set of components for visualization.
+
+
+
+4. Clustering
+Clustering is an unsupervised learning technique that groups similar data points together.
+The aim is generally to make points within a cluster more similar to one another than to points in other clusters.
+Example: Grouping students
+Suppose we have students described by two features: study hours and attendance.
+Illustration of clusters
+Students grouped by two features
+Illustrative points showing three groups. The coordinates are arbitrary.
+
+
+20406080100036912
+
+
+These are illustrative observations. A clustering algorithm groups points based on feature values and its own assumptions; the chart does not supply true labels.
+
+A clustering algorithm might discover groups such as:
+- Students with lower study hours and attendance.
+- Students with moderate study hours and higher attendance.
+- Students with higher study hours but lower attendance.
+These descriptions are assigned by interpreting the groups after clustering; the algorithm itself doesn't automatically know their meaning.
+Important clustering algorithms
+- K-Means: Groups points around cluster centers.
+- Hierarchical clustering: Builds a hierarchy of nested groups.
+- DBSCAN: Finds dense groups and can identify isolated noise points.
+Let's understand each one.
+5. K-Means Clustering
+K-Means is an unsupervised algorithm that divides data into \(K\) clusters. Each cluster is represented by a centroid — the mean position of its assigned points.
+The value \(K\) is chosen before the standard K-Means algorithm runs.
+Example
+Imagine you have 6 customers based on their spending scores. You want to divide them into 2 groups.
+K-Means: choosing two clusters
+Illustrative spending scores: 10, 12, 14, 70, 75, 80
+Cluster 1
+10, 12, 14
+Centroid = 12
+
+Cluster 2
+70, 75, 80
+Centroid = 75
+
+
+
+For this simple one-dimensional example, the centroid of the first group is:
+\[
+\frac{10+12+14}{3}=12
+\]
+
+The second group's centroid is:
+\[
+\frac{70+75+80}{3}=75
+\]
+
+The algorithm aims to assign points to clusters so that the points are close to their respective centroids.
+How K-Means works step by step
+1
+
+Choose K
+
+Decide the number of clusters.
+
+2
+
+Initialize centroids
+
+Select starting cluster centers.
+
+3
+
+Assign points
+
+Assign each point to its nearest centroid.
+
+4
+
+Update centroids
+
+Calculate the mean of each cluster's points.
+
+5
+
+Repeat
+
+Reassign points and update centers until assignments stabilize or a stopping condition is met.
+
+
+K-Means objective function
+K-Means tries to minimize the within-cluster sum of squared distances:
+\[
+J=\sum_{j=1}^{K}\sum_{x_i\in C_j}
+\|x_i-\mu_j\|^2
+\]
+
+Where:
+- \(K\) is the number of clusters.
+- \(C_j\) is the set of points in cluster \(j\).
+- \(x_i\) is a data point.
+- \(\mu_j\) is the centroid of cluster \(j\).
+In simple terms, K-Means tries to keep points close to their own cluster centers.
+Advantages
+- Simple to understand and implement.
+- Efficient for many numerical datasets.
+- Useful for customer segmentation and exploratory analysis.
+Limitations
+- You must choose \(K\) in advance.
+- Sensitive to initialization and outliers.
+- Works best for clusters that are reasonably compact under the chosen distance measure.
+- Features with very different scales can distort distances, so scaling is often important.
+How do we choose K?
+Two common approaches are:
+Elbow method: Run K-Means with several values of \(K\), then plot the within-cluster sum of squared distances. Look for a point where adding more clusters produces diminishing improvement.
+Silhouette score: Measures how well points fit within their own clusters compared with nearby alternative clusters. Higher scores generally indicate better-separated clusters.
+Neither method guarantees that the selected groups are meaningful for the business problem.
+6. Hierarchical Clustering
+Hierarchical clustering creates a hierarchy of clusters. Unlike standard K-Means, it can show how groups combine or split at different levels.
+There are two main approaches:
+- Agglomerative: Starts with each point as its own cluster and repeatedly merges clusters.
+- Divisive: Starts with one large cluster and repeatedly splits it into smaller clusters.
+Agglomerative clustering is the more commonly taught approach.
+Example
+Suppose we have four customers: A, B, C, and D.
+- A and B have similar shopping behavior.
+- C and D have similar shopping behavior.
+- The two pairs are less similar to each other.
+Agglomerative clustering may first merge A with B and C with D, then merge the two resulting groups.
+Hierarchical clustering tree
+All customers: A, B, C, D
+
+Cluster 1
+A, B
+
+Cluster 2
+C, D
+
+
+
+The tree shows nested groupings. The merge order depends on the distance metric and linkage method.
+
+How does it work?
+1. Start with each data point as a separate cluster.
+2. Calculate distances between clusters.
+3. Merge the two closest clusters.
+4. Update the distances between the new cluster and other clusters.
+5. Repeat until all points are merged or the desired number of clusters is reached.
+What is a dendrogram?
+A dendrogram is a tree-like diagram that shows which clusters merge and at what distance.
+By cutting the dendrogram at a chosen height, we can obtain a selected number of clusters.
+Linkage methods
+Linkage determines how distance between two clusters is measured.
+- Single linkage: Minimum distance between points in the two clusters.
+- Complete linkage: Maximum distance between points in the two clusters.
+- Average linkage: Average distance between points in the two clusters.
+- Ward's method: Merges clusters to minimize the increase in within-cluster variance, typically using squared Euclidean distances.
+Advantages and limitations
+Advantages:
+- Shows nested relationships between clusters.
+- Does not require selecting the final number of clusters at the beginning.
+- Dendrograms can help interpret group structure.
+Limitations:
+- Can be expensive for large datasets.
+- Results depend on distance and linkage choices.
+- Early merge decisions are generally not undone in standard agglomerative clustering.
+7. DBSCAN
+DBSCAN stands for Density-Based Spatial Clustering of Applications with Noise.
+It groups points that form dense regions and can mark points in sparse regions as noise or outliers.
+Unlike K-Means, DBSCAN does not require the number of clusters to be specified in advance.
+Example
+Imagine locations of food delivery orders on a city map. Several neighborhoods may have many nearby orders, while a few isolated orders are far away.
+DBSCAN can identify dense groups of orders and mark isolated points as noise.
+Two important parameters
+- Epsilon (\(\varepsilon\)): The maximum neighborhood distance used to find nearby points.
+- MinPts: The minimum number of points required in an epsilon-neighborhood for a point to qualify as a core point, under the chosen implementation's counting convention.
+DBSCAN distinguishes three kinds of points:
+- Core point: Has enough nearby points.
+- Border point: Is near a core point but does not itself have enough neighbors to be a core point.
+- Noise point: Is not assigned to a cluster under the algorithm's rules.
+How DBSCAN works
+1. Select an unvisited point.
+2. Find all points within its epsilon-neighborhood.
+3. If it has enough neighbors, start or expand a cluster.
+4. Continue expanding through nearby core points.
+5. If a point is not part of a dense region, it may be classified as noise.
+K-Means vs Hierarchical vs DBSCAN
+Feature	K-Means	Hierarchical	DBSCAN
+Choose K in advance?	Yes, in standard K-Means	Not necessarily	No
+Finds irregular-shaped clusters?	Often struggles	Depends on linkage	Often can
+Handles noise explicitly?	No dedicated noise label	No dedicated noise label	Yes
+Main idea	Cluster centers	Nested groups	Density
+Common limitation	Sensitive to K and outliers	Can be costly	Sensitive to density parameters
+DBSCAN can struggle when clusters have very different densities, and its distance parameters require care.
+8. Dimensionality Reduction
+Dimensionality reduction means reducing the number of features in a dataset while trying to preserve the information that matters.
+Imagine a dataset with 100 features for every customer. Some features may be redundant or highly correlated. Working with all 100 features can make analysis more complicated.
+Dimensionality reduction transforms the data into a smaller representation.
+Original dataset
+100 features
+
+Dimensionality reduction
+Transform and retain useful structure
+
+Reduced representation
+For example, 10 new components
+
+
+Benefits can include:
+- Faster computation and visualization.
+- Reduced redundancy.
+- Easier exploration of high-dimensional data.
+- Potentially less noise, depending on the method and dataset.
+However, dimensionality reduction can also discard information. A smaller representation is not automatically better.
+9. Principal Component Analysis (PCA)
+PCA stands for Principal Component Analysis. It is a widely used linear dimensionality reduction technique.
+PCA transforms the original features into new variables called principal components. These components are uncorrelated with each other on the training data and are ordered by how much variance they explain.
+Simple example
+Suppose a dataset contains:
+- Height in centimeters.
+- Height in meters.
+These features convey essentially the same information. PCA can identify the shared variation and represent the data using fewer dimensions.
+A more realistic example might include height, weight, and several correlated body measurements.
+How PCA works
+1
+
+Prepare the data
+
+Center the features and often scale them when units or ranges differ.
+
+2
+
+Find directions of variation
+
+Calculate the covariance structure or use an equivalent decomposition.
+
+3
+
+Rank principal components
+
+Order directions by explained variance.
+
+4
+
+Choose components
+
+Keep the number of components needed for the task.
+
+5
+
+Transform the data
+
+Project the original observations onto the selected components.
+
+
+What are principal components?
+- First principal component (PC1): Direction that captures the greatest possible variance.
+- Second principal component (PC2): Captures the greatest remaining variance while being orthogonal to PC1.
+- Later components: Capture progressively less variance.
+PCA is commonly used for visualization, compression, and preprocessing. It is not itself a clustering algorithm, although PCA can be applied before clustering.
+Explained variance
+Explained variance tells us how much of the total data variance a component captures.
+For example, if PC1 explains 60% of variance and PC2 explains 25%, then the first two components explain:
+\[
+60\%+25\%=85\%
+\]
+
+This means the two components preserve 85% of the measured variance, not necessarily 85% of all information relevant to a prediction task.
+Advantages and limitations
+Advantages
+- Can reduce many correlated features to fewer components.
+- Useful for visualizing high-dimensional data.
+- Can reduce redundancy and speed up later processing.
+Limitations
+- Principal components may be difficult to interpret.
+- PCA captures linear patterns and may miss nonlinear structure.
+- Scaling choices can strongly affect results.
+- Preserving variance does not guarantee preserving information most useful for a specific target.
+10. Python practical: K-Means clustering
+Let's group customers using two numerical features. This example uses an artificial dataset so you can understand the process.
+Install the libraries if needed:
+pip install scikit-learn matplotlib
+
+
+Now run:
+from sklearn.cluster import KMeansfrom sklearn.preprocessing import StandardScalerimport matplotlib.pyplot as plt# Customer data: [annual income, spending score]X = [    [20, 25],    [22, 28],    [25, 30],    [70, 75],    [75, 80],    [80, 85]]# Scale features because they may have different rangesscaler = StandardScaler()X_scaled = scaler.fit_transform(X)# Create and train the clustering modelmodel = KMeans(n_clusters=2, random_state=42, n_init=10)labels = model.fit_predict(X_scaled)print("Cluster labels:", labels)# Visualize the groups using the original featuresplt.scatter(    [row[0] for row in X],    [row[1] for row in X],    c=labels)plt.xlabel("Annual income")plt.ylabel("Spending score")plt.title("Customer clusters")plt.show()
+
+
+
+Understand the code
+- X contains the customer features.
+- StandardScaler() standardizes the features.
+- KMeans(n_clusters=2) requests two clusters.
+- fit_predict() fits the clustering model and returns a cluster assignment for each point.
+- plt.scatter() visualizes the data, with colors representing the assigned clusters.
+Cluster IDs such as 0 and 1 are arbitrary labels. Cluster 0 is not inherently better than cluster 1.
+For real projects, fit the scaler on training data and apply that same fitted scaler to future data. Also assess whether the clusters are meaningful instead of relying only on a plot.
+11. Placement interview questions
+Q1. What is clustering?
+Clustering is an unsupervised learning technique that groups similar data points based on their features.
+Q2. What is the difference between K-Means and DBSCAN?
+K-Means groups points around centroids and requires the number of clusters to be specified. DBSCAN groups dense regions and can identify noise points without requiring the number of clusters in advance.
+Q3. What is a centroid in K-Means?
+A centroid is the mean position of the data points assigned to a cluster.
+Q4. What is PCA?
+PCA is a linear dimensionality reduction technique that transforms features into principal components ordered by explained variance.
+Q5. What is the elbow method?
+The elbow method compares clustering costs for different values of K and looks for a point where increasing K yields diminishing improvements.
+Q6. What is the difference between clustering and classification?
+Clustering discovers groups without supplied target labels, whereas classification learns to predict predefined classes using labeled examples.
+12. MCQ practice test
+1. Which algorithm requires the number of clusters K in advance?
+
+K-Means
+
+DBSCAN
+
+PCA
+
+None of these
+
+
+
+2. Which algorithm can label isolated points as noise?
+
+K-Means
+
+DBSCAN
+
+Linear Regression
+
+Logistic Regression
+
+
+
+3. What is the main purpose of PCA?
+
+Predict only class labels
+
+Reduce dimensionality
+
+Create IF–THEN rules
+
+Sort the dataset
+
+
+
+4. What does a centroid represent in K-Means?
+
+The mean position of a cluster's points
+
+The farthest point in the dataset
+
+The number of features
+
+The class label
+
+
+
+5. Which technique displays hierarchical cluster merges?
+
+Confusion matrix
+
+Dendrogram
+
+Sigmoid function
+
+Linear regression line
+
+
+Check answers
